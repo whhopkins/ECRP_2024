@@ -1,0 +1,58 @@
+\documentclass{standalone}
+\usepackage[table]{xcolor}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{placeins}
+\usepackage{pdfpages}
+\usepackage[none]{hyphenat}
+\usepackage{makecell}
+\usepackage{arydshln}
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+\usepackage{caption, float, threeparttable}
+\newcommand*{\ATLASLATEXPATH}{../}
+\usepackage{\ATLASLATEXPATH atlaspackage}
+\usepackage{\ATLASLATEXPATH atlasbiblatex}
+\usepackage{\ATLASLATEXPATH atlasphysics}
+\usepackage{\ATLASLATEXPATH ANA-SUSY-2018-12-PAPER-defs}
+\usepackage{enumerate}
+\newcommand{\tth}{\ensuremath{\ttbar H}}
+\newcommand{\tthyy}{\ensuremath{\ttbar H(\to\gamma\gamma)}}
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+{\setlength{\tabcolsep}{5pt}%
+  \begin{threeparttable}%
+    \captionsetup{skip=4pt}%
+    % \caption{Publication timeline for future analyses. The shaded box are an estimated time for the completion of the analysis (with a six month uncertainty). The different colors correspond to teams that will work on the proposed efforts.}%
+    \begin{tabular}{|l|>{\centering}m{5mm}:>{\centering}m{5mm}|>{\centering}m{5mm}:>{\centering}m{5mm}|>{\centering}m{5mm}:>{\centering}m{5mm}|>{\centering}m{5mm}:>{\centering}m{5mm}|>{\centering}m{5mm}:>{\centering\arraybackslash}m{5mm}|} \hline
+      & \multicolumn{2}{c|}{\bf Period 1} & \multicolumn{2}{c|}{\bf Period 2} & \multicolumn{2}{c|}{\bf Period 3}& \multicolumn{2}{c|}{\bf Period 4}& \multicolumn{2}{c|}{\bf Period 5} \\
+      \hline\hline
+      Photon reso + data/MC adversarial R\&D (PI+PD1) & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & & & &  & & & \\ \hline
+      Photon reso + data/MC decorrelation R\&D (PD2) & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & & & &  & & & \\ \hline
+      Photon reso + data/MC orthogonalization validation (PD1+PD2) & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} &  & &  & & & \\ \hline\hline
+      Photon ID BDT/NN + isolation adversarial R\&D (PI) & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & &  & & & \\ \hline
+      Photon ID BDT/NN + isolation decorrelation R\&D (PD1) & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & &  & & & \\ \hline
+      Photon ID + BDT/NN calibration (PD1) & & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & & & & \\
+      \hline
+      Photon ID GNN isolation orthogonalization R\&D (PD2) & & &  & \cellcolor{blue!75} & \cellcolor{blue!75} &  \cellcolor{blue!75}&  & & & \\ \hline
+      Photon ID + GNN calibration (PD2) & & & &  & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & & & \\
+      \hline \hline
+      \tthyy\ background rejection + adversarial (PD1)\ & & & & & & \cellcolor{blue!75} & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} & \\ \hline
+      \tthyy\ background rejection + decorrelation (PD2)\ & & & & &  & \cellcolor{blue!75} & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} & \\ \hline \hline
+      $\kappa$-framework interpretation (PI+PD2) & & & & & & & & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} \\ \hline 
+      EFT interpretation (PI+PD1) & & & & & & & & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} \\ \hline 
+      
+      %Orthogonalization for HL-LHC (PD2) & &  & & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} \\ \hline 
+    \end{tabular}
+  \end{threeparttable}
+}
+\\
+ 
+\end{document}

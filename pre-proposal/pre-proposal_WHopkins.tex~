@@ -1,0 +1,80 @@
+\documentclass[letter, USenglish, 11pt, subfigure]{article}
+\usepackage[margin=1in]{geometry}
+\newcommand*{\ATLASLATEXPATH}{../}
+\usepackage{\ATLASLATEXPATH atlaspackage}
+\usepackage{\ATLASLATEXPATH atlasbiblatex}
+\usepackage{\ATLASLATEXPATH atlasphysics}
+\usepackage{\ATLASLATEXPATH ANA-SUSY-2018-12-PAPER-defs}
+\usepackage{enumerate}
+\newcommand{\tth}{\ensuremath{\ttbar H}}
+\newcommand{\tthyy}{\ensuremath{\ttbar H(\to\gamma\gamma)}}
+
+\usepackage{lineno}
+%\linenumbers
+\usepackage{wrapfig}
+\usepackage{placeins}
+\usepackage{pdfpages}
+\usepackage[none]{hyphenat} 
+\addbibresource{../proposal_WHopkins.bib}
+\addbibresource{../ATLAS-SUSY.bib}
+
+\title{Early Career Pre-proposal: \\\input{../title}}
+\author{Walter Hopkins, Assistant Physicist\\Argonne National Laboratory\\(630) 252 7551, whopkins@anl.gov\\Year Doctorate Awarded: 2013\\Eligibility Extension Requested: No\\Number of Times Previously Applied: 2\\ Topic Area: Experimental Research at the \\Energy Frontier in High Energy Physics\\
+  FOA Number: DE-FOA-0002563\\Signature of Laboratory Director: \\ \\ \\Paul K. Kearns, Laboratory Director
+}
+\date{}
+\begin{document}
+\maketitle
+
+% Outline
+
+% 1. SM and why BSM
+% 2. Higgs and BSM (including SMEFT)
+% 3. Why ttH, why H->yy
+
+% 4. Photon ID and resolution Intro
+% 5. ML classification and regression
+% 6. Calibration unmatched data
+% 7. Multiple dimensions and clustering for binning
+% 8. Impact beyond ttH
+% 9. Impact beyond photon ID/resolution
+
+
+Results from the Large Hadron Collider (LHC) experiments have verified the predictions of the highly successful Standard Model (SM), culminating with the discovery of the Higgs boson. However, the SM  lacks an explanation for several observed phenomena (e.g., dark matter, the matter-antimatter asymmetry, etc) motivating the search Beyond the Standard Model (BSM) physics. The LHC Run~1 and Run~2 extended the energy reach (first from $\sim$2~TeV at the Tevatron to 7~TeV and then to 8~TeV and finally to 13~TeV) of searches for direct production of BSM, significantly. Future LHC upgrades will no longer include significant increases in energy, but will first result in a doubling (Run~3) and then a tenfold increase (High Luminosity-LHC, HL-LHC) of the Run~2 data set. Th lack of evidence for BSM physics after Run~2 motivates a change in strategy for finding evidence of BSM effects. 
+
+Indirect searches for heavy BSM particles, which may have masses that prevent them from being directly produced at the LHC, can be performed by measurements of the Higgs boson self coupling and the coupling to the top quark\cite{}. The associative production of a top quark pair with a Higgs boson (\tth) is sensitive to both of these quantities\cite{PhysRevLett.125.061802,Maltoni_2017} and thus the \tth\ total and especially differential cross section measurements, e.g., as function of Higgs \pt, can serve as probes for BSM effects. The unprecedented data volume that of the HL-LHC offers an opportunity to {\bf make precision cross section measurements as a function of kinematic variables in channels with high \tth\ purity, i.e., where the Higgs decays to two photons (\tthyy)}. 
+
+Ingredients that are essential to maximizing the sensitivity of Higgs precision measurements, including \tthyy, are high photon identification (ID) efficiency and good photon energy resolution. Currently, both the photon ID and resolution algorithms are one of the few remaining physics object (e.g., electrons, muons, taus, and jets containing $b$-hadrons) algorithms that do not employ machine learning (ML). Studies have been performed within ATLAS that showed a potential 20\% improvement in both ID efficiency and resolution. However, as soon as the calibration of ID efficiency and resolution was taken into accoount, the gain in efficiency and enhancement in resolution were lost. For the ID, ML approaches were found to be correlated with quantities that needed to be uncorrelated to the ID for the calibration while for photon resolution it was found that ML methods were sensitive Monte Carlo (MC) mismodelling of shower shapes. Recent developments in decorrelating ML algorithms from particular quantities\cite{PhysRevLett.125.122001,adversarialDecor,louppe2017learning} yield an opportunity to address these challenges in calibrating photons. This proposal presents {\bf the development ML-based photon ID and resolution evaluation that can be calibrated and are robust against mismodeling by decorrelating the ML algorithms from quantities needed during calibration and from MC mismodeling. This would not only improve the \tthyy\ measurement but all ATLAS measurements involving $H\to\gamma\gamma$.}
+
+When calibrating the ID efficiency or the resolution of a physics object, i.e., ensuring that the MC derived values match what is found in data, there are no clear labels matching a data event to an MC event. Typically this is addressed by deriving calibrations in manually derived bins of kinematic properties of the object, i.e., the \pt\ and pseudo-rapidity ($\eta$). This binning can be automated using a class of ML techniques known as clustering which group similar data without labels. Beyond automation, clustering also comes with the benefit of being able to group similar data in many dimensions.
+
+The PI's experience in ML, e.g., as one of the ATLAS ML Forum conveners, as well as in the LAr calorimeter will aid the success of this proposal. The PI will also draw from his work within the ATLAS SUSY group, both as a leader of flagship $\ttbar+\MET$ searches~\cite{stop0L_1,stopRun1,stop0L_2,stop0L_3} and as a subgroup convener of the ATLAS SUSY strong production group. Additionally, the PI will leverage the computing resources and ML expertise at the Argonne Leadership Computing Facility (ALCF).
+
+
+\subsection*{Project Objectives}
+The objective of the proposed work is to maximize the power of \tthyy\ differential cross section measurements by improving the ATLAS photon ID efficiency and energy resolution. Photon ID and resolution will be improved using ML approaches that incorporate calibration into the optimization of ML algorithms.  
+\begin{itemize}
+\item Develop method to incorporate calibration considerations into ML physics object ID
+  \begin{itemize}
+    \item Using recent decorrelation schemes that have already been deployed for large-R jet ID
+    \end{itemize}
+  \item Apply decorrelation technique to calibrate photon ID efficiency
+  \item Apply decorrelation approach to calibrate photon energy resolution
+  \item Perform updated \tthyy\ differential cross section measurement with improved photon ID and resolution
+  \item Improve photon ID and resolution calibration by using $k$-means clustering to bin in more variables than $\eta$ and \pt\ which can affect the calibration.
+  \item Deploy tool that can calibrate other physics objects. 
+\end{itemize}
+
+\printbibliography
+\clearpage
+%\includepdf[landscape=true]{Collaborator.pdf}
+% \subsection*{Collaborators and Co-editors}
+% Michael Begel (Brookhaven National Laboratory), Tim Cohen (University of Oregon), Davide Costanzo (University of Sheffield), Yuji Enari (Tokyo ICEPP), Hal Evans (Indiana University), Laura Jeanty (Univeristy of Oregon), Sabine Lammers (Indiana University), Zach Marshall (Lawrence Berkeley National Laboratory), Federico Meloni (DESY), David Miller (University of Chicago), George Redlinger (Brookhaven National Laboratory), Frederik Ruehr (Freiburg), Rosa Simoniello (CERN), Pavol Strizenec (Kosice), David Strom (University of Oregon), Dan Tovey (University of Sheffield), Guillaume Unal (CERN)
+
+\subsection*{Graduate and Postdoctoral Advisors and Advisees}
+Graduate advisor: Julia Thom-Levy, Cornell University
+\\Principal Postdoctoral sponsor: Stephanie Majewski, University of Oregon\\
+Graduate advisees: J. Bonilla (University of California at Davis), I. Snyder (formerly at University of Oregon now in industry), G. Gledhill (University of Oregon)
+
+
+\end{document}

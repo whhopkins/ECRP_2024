@@ -1,0 +1,55 @@
+\documentclass{standalone}
+\usepackage[table]{xcolor}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{placeins}
+\usepackage{pdfpages}
+\usepackage[none]{hyphenat}
+\usepackage{makecell}
+\usepackage{arydshln}
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+\usepackage{caption, float, threeparttable}
+\newcommand*{\ATLASLATEXPATH}{../}
+\usepackage{\ATLASLATEXPATH atlaspackage}
+\usepackage{\ATLASLATEXPATH atlasbiblatex}
+\usepackage{\ATLASLATEXPATH atlasphysics}
+\usepackage{\ATLASLATEXPATH ANA-SUSY-2018-12-PAPER-defs}
+\usepackage{enumerate}
+\newcommand{\tth}{\ensuremath{\ttbar H}}
+\newcommand{\tthyy}{\ensuremath{\ttbar H(\to\gamma\gamma)}}
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+  {\setlength{\tabcolsep}{5pt}%
+ \begin{threeparttable}%
+\captionsetup{skip=4pt}%
+%\caption{Publication timeline for future analyses. The shaded box are an estimated time for the completion of the analysis (with a six month uncertainty). The different colors correspond to teams that will work on the proposed efforts.}%
+\begin{tabular}{|l|>{\centering}m{5mm}:>{\centering}m{5mm}|>{\centering}m{5mm}:>{\centering}m{5mm}|>{\centering}m{5mm}:>{\centering}m{5mm}|>{\centering}m{5mm}:>{\centering}m{5mm}|>{\centering}m{5mm}:>{\centering\arraybackslash}m{5mm}|} \hline
+    & \multicolumn{2}{c|}{\bf 2025} & \multicolumn{2}{c|}{\bf 2026} & \multicolumn{2}{c|}{\bf 2027}& \multicolumn{2}{c|}{\bf 2028}& \multicolumn{2}{c|}{\bf 2029} \\
+    \hline\hline
+    Photon reso + adversarial R\&D (postdoc 1) & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & & & &  & & & \\ \hline
+    Photon reso + adversarial validation and integration  (postdoc 1) & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} &  & &  & & & \\ \hline
+  Photon reso + decorrelation R\&D (postdoc 2) & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & & & &  & & & \\ \hline
+  Photon reso + decorrelation validation and integration  (postdoc 2) & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} &  & &  & & & \\ \hline\hline
+   Photon ID + adversarial R\&D (postdoc 1) & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & &  & & & \\ \hline
+    Photon ID + adversarial validation and integration  (postdoc 1) & & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} &  & & & \\ \hline
+  Photon ID + decorrelation R\&D (postdoc 2) & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & &  & & & \\ \hline
+      Photon ID + decorrelation validation and integration  (postdoc 2) & & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & & & & \\ \hline \hline
+    \tthyy task 1 (postdoc 1)\ & & & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} & \\ \hline
+  \tthyy task 2 (postdoc 2)\ & & & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} & \\ \hline \hline
+  Orthogonalization for HL-LHC (postdoc 2)\ & &  & & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} \\ \hline 
+
+  
+  \end{tabular}
+  \end{threeparttable}
+}
+\\
+ 
+\end{document}
