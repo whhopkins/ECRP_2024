@@ -58,15 +58,8 @@
 
 % eBUD proposal ID: 39999.1
 
+% Anomaly detection to find MC/data differences? Then use this data set to make ML algorithms insensitive to data/MC differences?
 \section{Introduction}
-
-% chatGPT rewrite (which is a little too dreamy):
-% Machine Learning (ML) has swiftly risen to prominence within the realm of High-Energy Physics (HEP), marking a transformative era in the field's methodological arsenal. Its application spans an impressive spectrum of tasks, from simulating calorimeter showers to the nuanced identification of particles such as photons and electrons, and the critical differentiation between signal and background processes. This technological evolution enables physicists to extract and leverage complex correlations across an extensive array of observables, including but not limited to particle four-vectors and energy depositions in calorimeters. These advancements underscore the potential of ML to significantly enhance analytical precision and efficiency in HEP research.
-
-% Nonetheless, the integration of ML within HEP is not without its challenges. A notable concern arises from the input variables to ML algorithms, where discrepancies in distributions between Monte Carlo (MC) simulations and actual experimental data can lead to mismodelling by the ML models themselves. Such discrepancies, even when marginal, can amplify uncertainties in the outcomes of these algorithms, thereby impacting the reliability and robustness of the research findings. Moreover, ML models possess the capacity to inadvertently introduce correlations between the predicted targets—be it estimated energy levels or particle type classifications—and variables integral to calibration processes or background estimations. This phenomenon could potentially skew the interpretative accuracy of the results and necessitate sophisticated approaches to mitigate its effects.
-
-% The dialogue between ML advancements and HEP research thus unfolds as a narrative of progress shadowed by the imperative for meticulous validation and calibration. It underscores the need for ongoing innovation in algorithmic design and training methodologies that are attuned to the intricacies of HEP data, ensuring that ML models not only enhance the analytical capabilities of physicists but also uphold the stringent standards of precision and accuracy foundational to the field.
-
 
 % Slightly toned down version
 % Machine learning (ML) has increasingly become a critical tool in High-Energy Physics (HEP), offering significant advancements in various tasks such as simulating calorimeter showers, identifying particles like photons and electrons, and distinguishing between signal and background processes. These ML techniques allow physicists to delve into complex correlations among a wide range of observables, from the trajectories and energies of particles to their interactions within detectors. This integration of ML into HEP has not only streamlined data analysis processes but also opened up new avenues for discovery by exploiting the full potential of available data.
@@ -100,9 +93,17 @@ The PI's experience in ML, e.g., as one of the ATLAS ML Forum conveners, as well
 
 Machine learning has already been used for the identification of various physics objects (i.e., electrons, jets containing b-hadrons, etc) and to calibrate properties of objects (e.g., for pions~\cite{ATL-PHYS-PUB-2020-018}). Many of these ML models, however, use simulations for training and do not automatically take data and MC differences into account during training. Additionally, algorithms may be required to be independent from variables that are either used in part of the calibration procedure, e.g., to determine the rate of fake objects~\cite{atlas_photon_id}, or that might vary during the operations of the collider or detector, e.g., the number of proton-proton interactions per bunch crossing (pileup) which will be particularly challenging environment at the HL-LHC.
 
-Machine-learning-based photon ID techniques have been studied within ATLAS demonstrating a potential gain in signal efficiency of 5-10\% while retaining the same background rejections as the current rectangular-requirement-based ID. Such an increase in efficiency would impact all $H\to\gamma\gamma$ measurements by improving the statistical power of these measurements with the same amount of HL-LHC data. However, the requirement of orthogonality to particular quantities (i.e., isolation) has limited the use of ML for photon ID within ATLAS. Additionally, the Phase II upgrade of the ATLAS Inner Tracker (ITk) will improve the track isolation (a measure of the energy associated with the candidate vs the energy around the candidate), which is used in the calibration of the photon ID efficiency. This improvement yields an opportunity to revisit the ATLAS photon ID and its calibration to maximize performance during the HL-LHC.
+Machine-learning-based photon ID techniques have been studied within ATLAS demonstrating a potential gain in signal efficiency of 5-10\%
+% a 7% improvement is only 1/sqrt(1.07)~ 3% reduction in  stat uncertainty
+while retaining the same background rejections as the current rectangular-requirement-based ID. Such an increase in efficiency would impact all $H\to\gamma\gamma$ measurements by improving the statistical power of these measurements with the same amount of HL-LHC data. However, the requirement of orthogonality to particular quantities (i.e., isolation) has limited the use of ML for photon ID within ATLAS. Additionally, the Phase II upgrade of the ATLAS Inner Tracker (ITk) will improve the track isolation (a measure of the energy associated with the candidate vs the energy around the candidate), which is used in the calibration of the photon ID efficiency. This improvement yields an opportunity to revisit the ATLAS photon ID and its calibration to maximize performance during the HL-LHC.
+% Remember, the improvement in efficiency results in a squared or fourth power improvement
+
+% What about changing the calibration method: use radiative Z since you have so much data at the HL-LHC
 
 The calibration of photon energies was studied using both advanced ML architectures, i.e., convolutional neural networks (CNNs) and graph neural networks (GNNs), and more information than the current boosted-decision-tree (BDT) based algorithm used. The resulting calibration showed a $\sim$20\% improvement in photon energy resolution but was sensitive to data-MC mismodelling in variables that summarized the shape of the energy deposits in the calorimeter. Ensuring that ML models are invariant with respect to these mismodelled quantities could result in significantly improved photon energy resolution which in turn will reduce the systematic uncertainties for analyses that include photons in their final states.
+% Resolution really only matters at the trigger no?
+% Higgs mass for resolution but won't work on it
+% but using the same method
 
 There have been recent advancements in decorreclating ML models from variables (e.g., jet substructure from jet mass) using methods such as adversarial discriminants and DisCo. 
 Adversarial approaches have been deployed to generate data, including calorimeter showers~\cite{calogan,fastsim3}, and involve two ML models, one that generates high-dimensional distributions and another model that is trained to discriminate between the ML-generated data and the real data. More recently, adversarial approaches have been used to discriminate between recorded and simulated data from the output of another discriminator. This strategy, i.e., to use a discriminator to penalize an ML model for giving differing results, can be applied to minimize differences between data and MC and to remove correlations to certain variables by including two loss (i.e., cost) functions, one for each ML model. The two opposing optimizations can, however, cause the training to be compute intensive and make it difficult to determine when to stop training. 
@@ -111,12 +112,6 @@ These decorrelation methods allow ML techniques to maximize the use of all infor
 
 % This may need to be removed
 Typically, physics object properties are corrected for differences between MC and data in bins of variables affected by changing detector effects (e.g., the pseudorapidity, $\eta$, and transverse momentum, \pt, of an object). The dimensionality of these bins is limited by practical considerations with the bin edges being chosen manually. Another set of ML techniques, known as clustering, not only allows for an automated way to group similar events at higher dimensions, it also enables correlations between these variables to be taken into account. Clustering has already been used to choose groupings in a two dimensional space for an analysis~\cite{ttH_tau_CMS} and the PI has studied these techniques to group theory models with similar final states. These ML approaches can help not only improve the calibration of physics objects but can also improve the speed of the calibration cycle by automating part of the process.
-
-\begin{figure}[!htbp]  
-  \centering
-  \includegraphics[width=\textwidth]{figures/ggH_STXS.pdf}
-  \caption{\label{fig:ggH_STXS} Examples of regions defined by bins in kinematic quantities used to constrain BSM effects in the ATLAS STXS measurement~\cite{ATLAS_STXS} and the gluon-gluon to Higgs channel.}
-\end{figure}
 
 
 The HL-LHC, heralds a new frontier in HEP, characterized by unparalleled precision and voluminous datasets that transition many experiments from being statistically constrained to being dominated by systematic uncertainties. This paradigm shift underscores the pivotal role of systematic uncertainties in shaping the landscape of precision measurements within the HEP domain. 
@@ -132,7 +127,7 @@ The results of differential cross sections measurements can probe BSM effects by
   \centering
   \subfigure[ggF]{\includegraphics[width=0.45\textwidth]{figures/ggFbbarbH_syst.pdf}}
   \subfigure[\tth]{\includegraphics[width=0.45\textwidth]{figures/tth_syst.pdf}}
-  \caption{\label{fig:stxs_unc} Expected contributions from the main sources of experimental systematic uncertainty to the total uncertainty in the measurement of the cross-section times $H\to\gamma\gamma$ branching ratio for gluon-gluon fusion Higgs production and \tth\ processes~\cite{ATLAS_STXS}. The uncertainty from each source is shown as a fraction of the total expected cross-section ($\sigma$). The magnitude of these uncertainties grows significantly for the differential cross section measurements (up to a total of {\color{red} X\%})}
+  \caption{\label{fig:stxs_unc} Expected contributions from the main sources of experimental systematic uncertainty to the total uncertainty in the measurement of the cross-section times $H\to\gamma\gamma$ branching ratio for gluon-gluon fusion Higgs production and \tth\ processes~\cite{ATLAS_STXS}. The uncertainty from each source is shown as a fraction of the total expected cross-section ($\sigma$). The magnitude of these uncertainties grows significantly for the differential cross section measurements.}
 \end{figure}
 
 % How will reducing the uncertainties which are already small (for the total)? How will reducing differential cross sections improve SMEFT and kappa results
