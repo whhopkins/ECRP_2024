@@ -22,6 +22,7 @@
 \usepackage{enumerate}
 \newcommand{\tth}{\ensuremath{\ttbar H}}
 \newcommand{\tthyy}{\ensuremath{\ttbar H(\to\gamma\gamma)}}
+\newcommand{\myy}{\ensuremath{m_{\gamma\gamma}}}
 
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
@@ -34,25 +35,21 @@
     \begin{tabular}{|l|>{\centering}m{5mm}:>{\centering}m{5mm}|>{\centering}m{5mm}:>{\centering}m{5mm}|>{\centering}m{5mm}:>{\centering}m{5mm}|>{\centering}m{5mm}:>{\centering}m{5mm}|>{\centering}m{5mm}:>{\centering\arraybackslash}m{5mm}|} \hline
       & \multicolumn{2}{c|}{\bf Period 1} & \multicolumn{2}{c|}{\bf Period 2} & \multicolumn{2}{c|}{\bf Period 3}& \multicolumn{2}{c|}{\bf Period 4}& \multicolumn{2}{c|}{\bf Period 5} \\
       \hline\hline
-      Photon reso + data/MC adversarial R\&D (PI+PD1) & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & & & &  & & & \\ \hline
-      Photon reso + data/MC decorrelation R\&D (PD2) & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & & & &  & & & \\ \hline
-      Photon reso + data/MC orthogonalization validation (PD1+PD2) & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} &  & &  & & & \\ \hline\hline
-      Photon ID BDT/NN + isolation adversarial R\&D (PI) & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & &  & & & \\ \hline
-      Photon ID BDT/NN + isolation decorrelation R\&D (PD1) & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & &  & & & \\ \hline
-      Photon ID + BDT/NN calibration (PD1) & & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & & & & \\
-      \hline
-      Photon ID GNN isolation orthogonalization R\&D (PD2) & & &  & \cellcolor{blue!75} & \cellcolor{blue!75} &  \cellcolor{blue!75}&  & & & \\ \hline
-      Photon ID + GNN calibration (PD2) & & & &  & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & & & \\
-      \hline \hline
-      \tthyy\ background rejection + adversarial (PD1)\ & & & & & & \cellcolor{blue!75} & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} & \\ \hline
-      \tthyy\ background rejection + decorrelation (PD2)\ & & & & &  & \cellcolor{blue!75} & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} & \\ \hline \hline
-      $\kappa$-framework interpretation (PI+PD2) & & & & & & & & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} \\ \hline 
-      EFT interpretation (PI+PD1) & & & & & & & & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} \\ \hline 
-      
-      %Orthogonalization for HL-LHC (PD2) & &  & & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} \\ \hline 
+      $E_{\gamma}$ NN/BDT with distance correlation and adversarial R\&D & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & & & &  & & & \\ \hline
+      $E_{\gamma}$ NN/BDT  with domain adaptation validation & & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & & & & & \\ \hline
+      $E_{\gamma}$ feature representation transfer R\&D & & \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & \cellcolor{blue!75} & \cellcolor{blue!75} &  & & & \\ \hline
+      $E_{\gamma}$ GNN regression with domain adaptation R\&D & & & & &  \cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75}  & & & \\ \hline
+      $E_{\gamma}$ GNN regression with domain adaptation validation & & & & & & &\cellcolor{blue!75} & \cellcolor{blue!75} & \cellcolor{blue!75} & \\ \hline\hline
+      Photon ID BDT + isolation decorrelation R\&D & \cellcolor{olive} & \cellcolor{olive} & \cellcolor{olive} & & & &  & & & \\ \hline
+      Photon ID BDT with domain adaptation validation & & & \cellcolor{olive} & \cellcolor{olive} & \cellcolor{olive} & & & & & \\ \hline
+      Photon ID GNN + isolation decorrelation R\&D  & & & & &  \cellcolor{olive} & \cellcolor{olive} & \cellcolor{olive}  & & & \\ \hline
+      Photon ID GNN with domain adaptation validation & & & & & & &\cellcolor{olive} & \cellcolor{olive} & \cellcolor{olive} & \\ \hline\hline
+      Domain adaptation integration into ML framework (SALT) & & & \cellcolor{gray} & \cellcolor{gray} & \cellcolor{gray} & \cellcolor{gray} & \cellcolor{gray} & \cellcolor{gray} & \cellcolor{gray}  & \\ \hline\hline
+      Intermediate \tthyy\ background rejection \ & \cellcolor{red!75} & \cellcolor{red!75}  & \cellcolor{red!75} & \cellcolor{red!75} & \cellcolor{red!75}  & & & & &\\ \hline 
+      Final \tthyy\ \myy\ decorrelation (PD2)\ & & & & &  & \cellcolor{red!75} & \cellcolor{red!75}  & \cellcolor{red!75} & \cellcolor{red!75} & \cellcolor{red!75} \\ \hline \hline
     \end{tabular}
   \end{threeparttable}
 }
 \\
- 
+
 \end{document}
